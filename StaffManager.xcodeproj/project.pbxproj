@@ -21,6 +21,8 @@
 		1EB04DB91A7D16340043814C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EB04D9B1A7D16340043814C /* UIKit.framework */; };
 		1EB04DC11A7D16340043814C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1EB04DBF1A7D16340043814C /* InfoPlist.strings */; };
 		1EB04DC31A7D16340043814C /* StaffManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB04DC21A7D16340043814C /* StaffManagerTests.m */; };
+		1EB04DCE1A7D88D80043814C /* RolesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB04DCD1A7D88D80043814C /* RolesTVC.m */; };
+		1EB04DD11A7D88F90043814C /* AddRoleTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB04DD01A7D88F90043814C /* AddRoleTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		1EB04DBE1A7D16340043814C /* StaffManagerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "StaffManagerTests-Info.plist"; sourceTree = "<group>"; };
 		1EB04DC01A7D16340043814C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1EB04DC21A7D16340043814C /* StaffManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffManagerTests.m; sourceTree = "<group>"; };
+		1EB04DCC1A7D88D80043814C /* RolesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RolesTVC.h; path = ViewControllers/RolesTVC.h; sourceTree = "<group>"; };
+		1EB04DCD1A7D88D80043814C /* RolesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RolesTVC.m; path = ViewControllers/RolesTVC.m; sourceTree = "<group>"; };
+		1EB04DCF1A7D88F90043814C /* AddRoleTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddRoleTVC.h; path = ViewControllers/AddRoleTVC.h; sourceTree = "<group>"; };
+		1EB04DD01A7D88F90043814C /* AddRoleTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddRoleTVC.m; path = ViewControllers/AddRoleTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +123,10 @@
 				1EB04DA91A7D16340043814C /* Main.storyboard */,
 				1EB04DAC1A7D16340043814C /* StaffManagerViewController.h */,
 				1EB04DAD1A7D16340043814C /* StaffManagerViewController.m */,
+				1EB04DCC1A7D88D80043814C /* RolesTVC.h */,
+				1EB04DCD1A7D88D80043814C /* RolesTVC.m */,
+				1EB04DCF1A7D88F90043814C /* AddRoleTVC.h */,
+				1EB04DD01A7D88F90043814C /* AddRoleTVC.m */,
 				1EB04DAF1A7D16340043814C /* Images.xcassets */,
 				1EB04D9E1A7D16340043814C /* Supporting Files */,
 			);
@@ -253,6 +263,8 @@
 				1EB04DA41A7D16340043814C /* main.m in Sources */,
 				1EB04DAE1A7D16340043814C /* StaffManagerViewController.m in Sources */,
 				1EB04DA81A7D16340043814C /* StaffManagerAppDelegate.m in Sources */,
+				1EB04DCE1A7D88D80043814C /* RolesTVC.m in Sources */,
+				1EB04DD11A7D88F90043814C /* AddRoleTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
