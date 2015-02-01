@@ -14,6 +14,8 @@
 @end
 
 @interface AddRoleTVC : UITableViewController
+@property (strong, nonatomic) IBOutlet UITextField *roleNameTextField;
 @property (weak, nonatomic) id <AddRoleTVCDelegate> delegate;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 - (IBAction)save:(id)sender;
 @end

@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CoreDataTableViewController.h"
 
-@interface RolesTVC : UITableViewController
-
+@interface RolesTVC : CoreDataTableViewController
+@property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @end

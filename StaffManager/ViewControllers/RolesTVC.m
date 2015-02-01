@@ -8,6 +8,7 @@
 
 #import "RolesTVC.h"
 #import "AddRoleTVC.h"
+#import "Role.h"
 
 @interface RolesTVC () <AddRoleTVCDelegate>
 
@@ -15,14 +16,7 @@
 
 @implementation RolesTVC
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+#pragma mark - ViewController postavke
 
 - (void)viewDidLoad
 {
@@ -35,8 +29,42 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self setupFetchedResultsController];
+}
+
+#pragma mark - Povlacenje podataka iz baze
+
+- (void)setupFetchedResultsController
+{
+    // 1 - Decide what entity you want
+    NSString *entityName= @"Role"; // Put your entity name here
+    NSLog(@"Setting up a Fetched Results Controller for the Entity named %@", entityName);
+    
+    // 2 - Request the Entity
+    NSFetchRequest *request= [NSFetchRequest fetchRequestWithEntityName:entityName];
+    
+    // 3 - Filter if you want
+    // request.predicate= [NSPredicate predicateWithFormat:@"Role.name= Blah"];
+    
+    // 4 - Sort if you want
+    request.sortDescriptors= [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name"
+                                                                                    ascending:YES
+                                                                                     selector:@selector(localizedCaseInsensitiveCompare:)]];
+    // 5 - Fetch it
+    self.fetchedResultsController= [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                       managedObjectContext:self.managedObjectContext
+                                                                         sectionNameKeyPath:nil
+                                                                                  cacheName:nil];
+    [self performFetch];
+    
+}
+
 #pragma mark - TableView Data Source metode
 
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
@@ -50,6 +78,7 @@
     // Return the number of rows in the section.
     return 0;
 }
+ */
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -64,6 +93,9 @@
     
     // Configure the cell...
     
+    Role *role= [self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text= role.name;
+    
     return cell;
 }
 
@@ -75,6 +107,7 @@
         NSLog(@"Setting RolesTVC as a delegate of AddRoleTVC");
         AddRoleTVC *addRoleTVC= segue.destinationViewController;
         addRoleTVC.delegate= self;
+        addRoleTVC.managedObjectContext= self.managedObjectContext;
     }
 }
 

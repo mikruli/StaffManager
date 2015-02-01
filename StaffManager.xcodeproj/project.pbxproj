@@ -12,7 +12,6 @@
 		1EB04D9C1A7D16340043814C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EB04D9B1A7D16340043814C /* UIKit.framework */; };
 		1EB04DA21A7D16340043814C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1EB04DA01A7D16340043814C /* InfoPlist.strings */; };
 		1EB04DA41A7D16340043814C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB04DA31A7D16340043814C /* main.m */; };
-		1EB04DA81A7D16340043814C /* StaffManagerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB04DA71A7D16340043814C /* StaffManagerAppDelegate.m */; };
 		1EB04DAB1A7D16340043814C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1EB04DA91A7D16340043814C /* Main.storyboard */; };
 		1EB04DAE1A7D16340043814C /* StaffManagerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB04DAD1A7D16340043814C /* StaffManagerViewController.m */; };
 		1EB04DB01A7D16340043814C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1EB04DAF1A7D16340043814C /* Images.xcassets */; };
@@ -23,6 +22,11 @@
 		1EB04DC31A7D16340043814C /* StaffManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB04DC21A7D16340043814C /* StaffManagerTests.m */; };
 		1EB04DCE1A7D88D80043814C /* RolesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB04DCD1A7D88D80043814C /* RolesTVC.m */; };
 		1EB04DD11A7D88F90043814C /* AddRoleTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB04DD01A7D88F90043814C /* AddRoleTVC.m */; };
+		1EB04E691A7D95B50043814C /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB04E681A7D95B50043814C /* CoreDataTableViewController.m */; };
+		1EB04E6C1A7D96D10043814C /* StaffManagerAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB04E6B1A7D96D10043814C /* StaffManagerAppDelegate.m */; };
+		1EB04E6E1A7D97690043814C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EB04E6D1A7D97690043814C /* CoreData.framework */; };
+		1EE47CD21A7EA7FA006D4731 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EE47CD01A7EA7FA006D4731 /* Model.xcdatamodeld */; };
+		1EE47CD51A7EA851006D4731 /* Role.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE47CD41A7EA851006D4731 /* Role.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,8 +48,6 @@
 		1EB04DA11A7D16340043814C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1EB04DA31A7D16340043814C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1EB04DA51A7D16340043814C /* StaffManager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "StaffManager-Prefix.pch"; sourceTree = "<group>"; };
-		1EB04DA61A7D16340043814C /* StaffManagerAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffManagerAppDelegate.h; sourceTree = "<group>"; };
-		1EB04DA71A7D16340043814C /* StaffManagerAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffManagerAppDelegate.m; sourceTree = "<group>"; };
 		1EB04DAA1A7D16340043814C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1EB04DAC1A7D16340043814C /* StaffManagerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StaffManagerViewController.h; sourceTree = "<group>"; };
 		1EB04DAD1A7D16340043814C /* StaffManagerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StaffManagerViewController.m; sourceTree = "<group>"; };
@@ -59,6 +61,14 @@
 		1EB04DCD1A7D88D80043814C /* RolesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RolesTVC.m; path = ViewControllers/RolesTVC.m; sourceTree = "<group>"; };
 		1EB04DCF1A7D88F90043814C /* AddRoleTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddRoleTVC.h; path = ViewControllers/AddRoleTVC.h; sourceTree = "<group>"; };
 		1EB04DD01A7D88F90043814C /* AddRoleTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddRoleTVC.m; path = ViewControllers/AddRoleTVC.m; sourceTree = "<group>"; };
+		1EB04E671A7D95B50043814C /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		1EB04E681A7D95B50043814C /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		1EB04E6A1A7D96C50043814C /* StaffManagerAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaffManagerAppDelegate.h; sourceTree = "<group>"; };
+		1EB04E6B1A7D96D10043814C /* StaffManagerAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaffManagerAppDelegate.m; sourceTree = "<group>"; };
+		1EB04E6D1A7D97690043814C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		1EE47CD11A7EA7FA006D4731 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		1EE47CD31A7EA851006D4731 /* Role.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Role.h; sourceTree = "<group>"; };
+		1EE47CD41A7EA851006D4731 /* Role.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Role.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1EB04E6E1A7D97690043814C /* CoreData.framework in Frameworks */,
 				1EB04D9A1A7D16340043814C /* CoreGraphics.framework in Frameworks */,
 				1EB04D9C1A7D16340043814C /* UIKit.framework in Frameworks */,
 				1EB04D981A7D16340043814C /* Foundation.framework in Frameworks */,
@@ -107,6 +118,7 @@
 		1EB04D961A7D16340043814C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1EB04E6D1A7D97690043814C /* CoreData.framework */,
 				1EB04D971A7D16340043814C /* Foundation.framework */,
 				1EB04D991A7D16340043814C /* CoreGraphics.framework */,
 				1EB04D9B1A7D16340043814C /* UIKit.framework */,
@@ -118,8 +130,8 @@
 		1EB04D9D1A7D16340043814C /* StaffManager */ = {
 			isa = PBXGroup;
 			children = (
-				1EB04DA61A7D16340043814C /* StaffManagerAppDelegate.h */,
-				1EB04DA71A7D16340043814C /* StaffManagerAppDelegate.m */,
+				1EB04E6A1A7D96C50043814C /* StaffManagerAppDelegate.h */,
+				1EB04E6B1A7D96D10043814C /* StaffManagerAppDelegate.m */,
 				1EB04DA91A7D16340043814C /* Main.storyboard */,
 				1EB04DAC1A7D16340043814C /* StaffManagerViewController.h */,
 				1EB04DAD1A7D16340043814C /* StaffManagerViewController.m */,
@@ -127,6 +139,10 @@
 				1EB04DCD1A7D88D80043814C /* RolesTVC.m */,
 				1EB04DCF1A7D88F90043814C /* AddRoleTVC.h */,
 				1EB04DD01A7D88F90043814C /* AddRoleTVC.m */,
+				1EE47CD01A7EA7FA006D4731 /* Model.xcdatamodeld */,
+				1EE47CD31A7EA851006D4731 /* Role.h */,
+				1EE47CD41A7EA851006D4731 /* Role.m */,
+				1EB04E661A7D95B50043814C /* CoreDataTableViewController */,
 				1EB04DAF1A7D16340043814C /* Images.xcassets */,
 				1EB04D9E1A7D16340043814C /* Supporting Files */,
 			);
@@ -160,6 +176,15 @@
 				1EB04DBF1A7D16340043814C /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1EB04E661A7D95B50043814C /* CoreDataTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1EB04E671A7D95B50043814C /* CoreDataTableViewController.h */,
+				1EB04E681A7D95B50043814C /* CoreDataTableViewController.m */,
+			);
+			path = CoreDataTableViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,9 +287,12 @@
 			files = (
 				1EB04DA41A7D16340043814C /* main.m in Sources */,
 				1EB04DAE1A7D16340043814C /* StaffManagerViewController.m in Sources */,
-				1EB04DA81A7D16340043814C /* StaffManagerAppDelegate.m in Sources */,
+				1EB04E691A7D95B50043814C /* CoreDataTableViewController.m in Sources */,
+				1EE47CD51A7EA851006D4731 /* Role.m in Sources */,
+				1EE47CD21A7EA7FA006D4731 /* Model.xcdatamodeld in Sources */,
 				1EB04DCE1A7D88D80043814C /* RolesTVC.m in Sources */,
 				1EB04DD11A7D88F90043814C /* AddRoleTVC.m in Sources */,
+				1EB04E6C1A7D96D10043814C /* StaffManagerAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +497,7 @@
 				1EB04DC81A7D16340043814C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1EB04DC91A7D16340043814C /* Build configuration list for PBXNativeTarget "StaffManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -477,8 +506,23 @@
 				1EB04DCB1A7D16340043814C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1EE47CD01A7EA7FA006D4731 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1EE47CD11A7EA7FA006D4731 /* Model.xcdatamodel */,
+			);
+			currentVersion = 1EE47CD11A7EA7FA006D4731 /* Model.xcdatamodel */;
+			name = Model.xcdatamodeld;
+			path = ../Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 1EB04D8C1A7D16340043814C /* Project object */;
 }

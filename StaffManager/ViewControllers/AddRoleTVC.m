@@ -7,21 +7,15 @@
 //
 
 #import "AddRoleTVC.h"
+#import "Role.h"
 
-@interface AddRoleTVC ()
+@interface AddRoleTVC () <UITextFieldDelegate>
 
 @end
 
 @implementation AddRoleTVC
 
-- (id)initWithStyle:(UITableViewStyle)style
-{
-    self = [super initWithStyle:style];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
+@synthesize managedObjectContext= _managedObjectContext;
 
 - (void)viewDidLoad
 {
@@ -36,6 +30,7 @@
 
 #pragma mark - Table view data source
 
+/*
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
 #warning Potentially incomplete method implementation.
@@ -49,6 +44,7 @@
     // Return the number of rows in the section.
     return 0;
 }
+ */
 
 /*
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -66,7 +62,23 @@
 - (IBAction)save:(id)sender
 {
     NSLog(@"Telling the AddRoleTVC Delegate that Save was tapped on the AddRoleTVC");
+    
+    Role *role= [NSEntityDescription insertNewObjectForEntityForName:@"Role"
+                                              inManagedObjectContext:self.managedObjectContext];
+    
+    role.name= self.roleNameTextField.text;
+    
+    [self.managedObjectContext save:nil];
+    
     [self.delegate theSaveButtonOnTheAddRoleTVCWasTapped:self];
+}
+
+#pragma mark - UITextFieldDelegate metode
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 @end
