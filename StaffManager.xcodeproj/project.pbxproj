@@ -27,6 +27,7 @@
 		1EB04E6E1A7D97690043814C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1EB04E6D1A7D97690043814C /* CoreData.framework */; };
 		1EE47CD21A7EA7FA006D4731 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1EE47CD01A7EA7FA006D4731 /* Model.xcdatamodeld */; };
 		1EE47CD51A7EA851006D4731 /* Role.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE47CD41A7EA851006D4731 /* Role.m */; };
+		1EE47CDA1A7EB310006D4731 /* RoleDetailTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE47CD91A7EB310006D4731 /* RoleDetailTVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		1EE47CD11A7EA7FA006D4731 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		1EE47CD31A7EA851006D4731 /* Role.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Role.h; sourceTree = "<group>"; };
 		1EE47CD41A7EA851006D4731 /* Role.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Role.m; sourceTree = "<group>"; };
+		1EE47CD81A7EB310006D4731 /* RoleDetailTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RoleDetailTVC.h; path = ViewControllers/RoleDetailTVC.h; sourceTree = "<group>"; };
+		1EE47CD91A7EB310006D4731 /* RoleDetailTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RoleDetailTVC.m; path = ViewControllers/RoleDetailTVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,18 +133,9 @@
 		1EB04D9D1A7D16340043814C /* StaffManager */ = {
 			isa = PBXGroup;
 			children = (
-				1EB04E6A1A7D96C50043814C /* StaffManagerAppDelegate.h */,
-				1EB04E6B1A7D96D10043814C /* StaffManagerAppDelegate.m */,
 				1EB04DA91A7D16340043814C /* Main.storyboard */,
-				1EB04DAC1A7D16340043814C /* StaffManagerViewController.h */,
-				1EB04DAD1A7D16340043814C /* StaffManagerViewController.m */,
-				1EB04DCC1A7D88D80043814C /* RolesTVC.h */,
-				1EB04DCD1A7D88D80043814C /* RolesTVC.m */,
-				1EB04DCF1A7D88F90043814C /* AddRoleTVC.h */,
-				1EB04DD01A7D88F90043814C /* AddRoleTVC.m */,
-				1EE47CD01A7EA7FA006D4731 /* Model.xcdatamodeld */,
-				1EE47CD31A7EA851006D4731 /* Role.h */,
-				1EE47CD41A7EA851006D4731 /* Role.m */,
+				1EE47CD71A7EB263006D4731 /* ViewControllers */,
+				1EE47CD61A7EB24B006D4731 /* CoreData */,
 				1EB04E661A7D95B50043814C /* CoreDataTableViewController */,
 				1EB04DAF1A7D16340043814C /* Images.xcassets */,
 				1EB04D9E1A7D16340043814C /* Supporting Files */,
@@ -152,6 +146,8 @@
 		1EB04D9E1A7D16340043814C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1EB04E6A1A7D96C50043814C /* StaffManagerAppDelegate.h */,
+				1EB04E6B1A7D96D10043814C /* StaffManagerAppDelegate.m */,
 				1EB04D9F1A7D16340043814C /* StaffManager-Info.plist */,
 				1EB04DA01A7D16340043814C /* InfoPlist.strings */,
 				1EB04DA31A7D16340043814C /* main.m */,
@@ -185,6 +181,31 @@
 				1EB04E681A7D95B50043814C /* CoreDataTableViewController.m */,
 			);
 			path = CoreDataTableViewController;
+			sourceTree = "<group>";
+		};
+		1EE47CD61A7EB24B006D4731 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				1EE47CD01A7EA7FA006D4731 /* Model.xcdatamodeld */,
+				1EE47CD31A7EA851006D4731 /* Role.h */,
+				1EE47CD41A7EA851006D4731 /* Role.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
+		1EE47CD71A7EB263006D4731 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1EB04DAC1A7D16340043814C /* StaffManagerViewController.h */,
+				1EB04DAD1A7D16340043814C /* StaffManagerViewController.m */,
+				1EB04DCC1A7D88D80043814C /* RolesTVC.h */,
+				1EB04DCD1A7D88D80043814C /* RolesTVC.m */,
+				1EB04DCF1A7D88F90043814C /* AddRoleTVC.h */,
+				1EB04DD01A7D88F90043814C /* AddRoleTVC.m */,
+				1EE47CD81A7EB310006D4731 /* RoleDetailTVC.h */,
+				1EE47CD91A7EB310006D4731 /* RoleDetailTVC.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +314,7 @@
 				1EB04DCE1A7D88D80043814C /* RolesTVC.m in Sources */,
 				1EB04DD11A7D88F90043814C /* AddRoleTVC.m in Sources */,
 				1EB04E6C1A7D96D10043814C /* StaffManagerAppDelegate.m in Sources */,
+				1EE47CDA1A7EB310006D4731 /* RoleDetailTVC.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

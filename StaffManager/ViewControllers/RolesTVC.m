@@ -9,8 +9,9 @@
 #import "RolesTVC.h"
 #import "AddRoleTVC.h"
 #import "Role.h"
+#import "RoleDetailTVC.h"
 
-@interface RolesTVC () <AddRoleTVCDelegate>
+@interface RolesTVC () <AddRoleTVCDelegate, RoleDetailTVCDelegate>
 
 @end
 
@@ -64,22 +65,6 @@
 
 #pragma mark - TableView Data Source metode
 
-/*
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-#warning Potentially incomplete method implementation.
-    // Return the number of sections.
-    return 0;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-#warning Incomplete method implementation.
-    // Return the number of rows in the section.
-    return 0;
-}
- */
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -99,15 +84,58 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ( editingStyle == UITableViewCellEditingStyleDelete ) {
+        
+        // self.suspendAutomaticTrackingOfChangesInManagedObjectContext= YES;
+        
+        // [self.tableView beginUpdates]; // Avoid NSinteralInconsistencyException
+        
+        // Delete the role object that was swiped
+        
+        Role *roleToDelete= [self.fetchedResultsController objectAtIndexPath:indexPath];
+        NSLog(@"Deleting (%@)", roleToDelete.name);
+        [self.managedObjectContext deleteObject:roleToDelete];
+        [self.managedObjectContext save:nil];
+        
+        // Delete the (now empty) row on the table
+        // [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        // [self performFetch];
+        
+        // [self.tableView endUpdates];
+        // self.suspendAutomaticTrackingOfChangesInManagedObjectContext= NO;
+    }
+}
+
 #pragma mark - Prepare for segue i delagate protokol metoda
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ( [segue.identifier isEqualToString:@"Add Role Segue"] ) {
+        
         NSLog(@"Setting RolesTVC as a delegate of AddRoleTVC");
+        
         AddRoleTVC *addRoleTVC= segue.destinationViewController;
         addRoleTVC.delegate= self;
         addRoleTVC.managedObjectContext= self.managedObjectContext;
+    } else if ( [segue.identifier isEqualToString:@"Role Detail Segue"] ) {
+        
+        NSLog(@"Setting RolesTVC as a delegate of RoleDetailTVC");
+        
+        RoleDetailTVC *roleDetailTVC= segue.destinationViewController;
+        roleDetailTVC.delegate= self;
+        roleDetailTVC.managedObjectContext= self.managedObjectContext;
+        
+        // Store selected Role in selectedRole property
+        NSIndexPath *indexPath= [self.tableView indexPathForSelectedRow];
+        self.selectedRole= [self.fetchedResultsController objectAtIndexPath:indexPath];
+        
+        NSLog(@"Passing selected role (%@) to RoleDetailTVC", self.selectedRole.name);
+        roleDetailTVC.role= self.selectedRole;
+        
+    } else {
+        NSLog(@"Unidentified Segue Attempted!");
     }
 }
 

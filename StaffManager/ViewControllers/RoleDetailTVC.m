@@ -1,21 +1,20 @@
 //
-//  AddRoleTVC.m
+//  RoleDetailTVC.m
 //  StaffManager
 //
-//  Created by Dejan Kumric on 1/31/15.
+//  Created by Dejan Kumric on 2/1/15.
 //  Copyright (c) 2015 Dejan Kumric. All rights reserved.
 //
 
-#import "AddRoleTVC.h"
+#import "RoleDetailTVC.h"
 #import "Role.h"
 
-@interface AddRoleTVC () <UITextFieldDelegate>
-
+@interface RoleDetailTVC () <UITextFieldDelegate>
 @end
 
-@implementation AddRoleTVC
+@implementation RoleDetailTVC
 
-@synthesize managedObjectContext= _managedObjectContext;
+@synthesize role= _role;
 
 - (void)viewDidLoad
 {
@@ -26,20 +25,25 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    NSLog(@"Setting the value of fields in this static table to that of the passed Role");
+    self.roleNameTextField.text= self.role.name;
+    
 }
 
-#pragma mark - IBAction metode
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [self setRoleNameTextField:nil];
+    [super viewDidDisappear:animated];
+}
 
 - (IBAction)save:(id)sender
 {
     NSLog(@"Telling the AddRoleTVC Delegate that Save was tapped on the AddRoleTVC");
     
-    Role *role= [NSEntityDescription insertNewObjectForEntityForName:@"Role"
-                                              inManagedObjectContext:self.managedObjectContext];
+    [self.role setName:self.roleNameTextField.text];
     
-    role.name= self.roleNameTextField.text;
-    
-    [self.managedObjectContext save:nil];
+    [self.managedObjectContext save:nil]; // write to database
     
     [self.delegate theSaveButtonOnTheAddRoleTVCWasTapped:self];
 }
