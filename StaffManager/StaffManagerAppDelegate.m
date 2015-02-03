@@ -9,6 +9,7 @@
 #import "StaffManagerAppDelegate.h"
 
 #import "RolesTVC.h"
+#import "PersonTVC.h"
 
 @implementation StaffManagerAppDelegate
 
@@ -19,9 +20,28 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    /*
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
     RolesTVC *controller = (RolesTVC *)navigationController.topViewController;
     controller.managedObjectContext = self.managedObjectContext;
+     */
+    //
+    
+    // The Tab Bar
+    UITabBarController *tabBarController= (UITabBarController *)self.window.rootViewController;
+    
+    // The Two Navigation Controllers attached to the Tab Bar (At Tab Bar Indexes 0 and 1)
+    UINavigationController *personsTVCnav= [[tabBarController viewControllers] objectAtIndex:1];
+    UINavigationController *rolesTVCnav= [[tabBarController viewControllers] objectAtIndex:0];
+    
+    // The Persons Table View Controller (Second Nav Controller Index 1)
+    PersonTVC *personsTVC= [[personsTVCnav viewControllers] objectAtIndex:0];
+    personsTVC.managedObjectContext= self.managedObjectContext;
+    
+    // The Roles Table View Controller (First Nav Controller Index 0)
+    RolesTVC *rolesTVC= [[rolesTVCnav viewControllers] objectAtIndex:0];
+    rolesTVC.managedObjectContext= self.managedObjectContext;
+    
     return YES;
 }
 							
@@ -109,7 +129,9 @@
     
     NSError *error = nil;
     _persistentStoreCoordinator = [[NSPersistentStoreCoordinator alloc] initWithManagedObjectModel:[self managedObjectModel]];
-    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:nil error:&error]) {
+    
+    NSDictionary *options= [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithBool:YES], NSMigratePersistentStoresAutomaticallyOption, [NSNumber numberWithBool:YES], NSInferMappingModelAutomaticallyOption, nil];
+    if (![_persistentStoreCoordinator addPersistentStoreWithType:NSSQLiteStoreType configuration:nil URL:storeURL options:options error:&error]) {
         /*
          Replace this implementation with code to handle the error appropriately.
          

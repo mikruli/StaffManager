@@ -1,18 +1,19 @@
 //
-//  Role.m
+//  Person.m
 //  StaffManager
 //
 //  Created by Dejan Kumric on 2/2/15.
 //  Copyright (c) 2015 Dejan Kumric. All rights reserved.
 //
 
-#import "Role.h"
 #import "Person.h"
+#import "Role.h"
 
 
-@implementation Role
+@implementation Person
 
-@dynamic name;
-@dynamic heldBy;
+@dynamic firstname;
+@dynamic surname;
+@dynamic inRole;
 
 @end
