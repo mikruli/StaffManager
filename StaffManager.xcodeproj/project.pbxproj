@@ -33,6 +33,7 @@
 		1EE47CF61A801DAD006D4731 /* PersonRoleTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE47CF51A801DAD006D4731 /* PersonRoleTVC.m */; };
 		1EE47D051A802A1E006D4731 /* Role.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE47D041A802A1E006D4731 /* Role.m */; };
 		1EE47D081A802A1E006D4731 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE47D071A802A1E006D4731 /* Person.m */; };
+		772820121A929B0500497B9E /* CoreDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 772820111A929B0500497B9E /* CoreDataTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,8 @@
 		1EE47D041A802A1E006D4731 /* Role.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Role.m; sourceTree = "<group>"; };
 		1EE47D061A802A1E006D4731 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
 		1EE47D071A802A1E006D4731 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		772820101A929B0500497B9E /* CoreDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewCell.h; sourceTree = "<group>"; };
+		772820111A929B0500497B9E /* CoreDataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +198,8 @@
 			children = (
 				1EB04E671A7D95B50043814C /* CoreDataTableViewController.h */,
 				1EB04E681A7D95B50043814C /* CoreDataTableViewController.m */,
+				772820101A929B0500497B9E /* CoreDataTableViewCell.h */,
+				772820111A929B0500497B9E /* CoreDataTableViewCell.m */,
 			);
 			path = CoreDataTableViewController;
 			sourceTree = "<group>";
@@ -336,6 +341,7 @@
 				1EB04DA41A7D16340043814C /* main.m in Sources */,
 				1EE47D081A802A1E006D4731 /* Person.m in Sources */,
 				1EE47D051A802A1E006D4731 /* Role.m in Sources */,
+				772820121A929B0500497B9E /* CoreDataTableViewCell.m in Sources */,
 				1EB04DAE1A7D16340043814C /* StaffManagerViewController.m in Sources */,
 				1EE47CED1A8009B9006D4731 /* AddPersonTVC.m in Sources */,
 				1EE47CF31A800D19006D4731 /* PersonDetailTVC.m in Sources */,
