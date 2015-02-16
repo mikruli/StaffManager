@@ -44,6 +44,11 @@
     
     return YES;
 }
+
+- (void)setupFetchedResultsController
+{
+    
+}
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
