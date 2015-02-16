@@ -8,6 +8,7 @@
 
 #import "StaffManagerAppDelegate.h"
 
+#import "Role.h"
 #import "RolesTVC.h"
 #import "PersonTVC.h"
 
@@ -16,9 +17,20 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+@synthesize fetchedResultsController= _fetchedResultsController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [self setupFetchedResultsController];
+    
+    if ( ![[self.fetchedResultsController fetchedObjects] count] > 0 ) {
+        NSLog(@"!!!!! --> There's nothing in the database so defaults will be inserted");
+        [self importCoreDataDefaultRoles];
+    } else {
+        NSLog(@"There's stuff in the database so skipping the import of default data");
+    }
+    
     // Override point for customization after application launch.
     /*
     UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
@@ -45,9 +57,56 @@
     return YES;
 }
 
+- (void)insertRoleWithRoleName:(NSString *)roleName
+{
+    Role *role = [NSEntityDescription insertNewObjectForEntityForName:@"Role"
+                                               inManagedObjectContext:self.managedObjectContext];
+    
+    role.name = roleName;
+    
+    [self.managedObjectContext save:nil];
+}
+
+- (void)importCoreDataDefaultRoles {
+    
+    NSLog(@"Importing Core Data Default Values for Roles...");
+    [self insertRoleWithRoleName:@"C/C++ Developer"];
+    [self insertRoleWithRoleName:@"Obj-C Developer"];
+    [self insertRoleWithRoleName:@"Java Developer"];
+    [self insertRoleWithRoleName:@"ASP.NET Developer"];
+    [self insertRoleWithRoleName:@"Unix Engineer"];
+    [self insertRoleWithRoleName:@"Windows Engineer"];
+    [self insertRoleWithRoleName:@"Business Analyst"];
+    [self insertRoleWithRoleName:@"Infrastructure Manager"];
+    [self insertRoleWithRoleName:@"Project Manager"];
+    [self insertRoleWithRoleName:@"Operations Manager"];
+    [self insertRoleWithRoleName:@"Desktop Support Analyst"];
+    [self insertRoleWithRoleName:@"Chief Information Officer"];
+    NSLog(@"Importing Core Data Default Values for Roles Completed!");
+}
+
 - (void)setupFetchedResultsController
 {
+    // 1 - Decide what entity you want
+    NSString *entityName= @"Role"; // Put your entity name here
+    NSLog(@"Setting up a Fetched Results Controller for the Entity named %@", entityName);
     
+    // 2 - Request the Entity
+    NSFetchRequest *request= [NSFetchRequest fetchRequestWithEntityName:entityName];
+    
+    // 3 - Filter if you want
+    // request.predicate= [NSPredicate predicateWithFormat:@"Role.name= Blah"];
+    
+    // 4 - Sort if you want
+    request.sortDescriptors= [NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"name"
+                                                                                    ascending:YES
+                                                                                     selector:@selector(localizedCaseInsensitiveCompare:)]];
+    // 5 - Fetch it
+    self.fetchedResultsController= [[NSFetchedResultsController alloc] initWithFetchRequest:request
+                                                                       managedObjectContext:self.managedObjectContext
+                                                                         sectionNameKeyPath:nil
+                                                                                  cacheName:nil];
+    [self.fetchedResultsController performFetch:nil];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
