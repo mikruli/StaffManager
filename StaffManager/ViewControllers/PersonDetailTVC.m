@@ -31,6 +31,8 @@
     // self.personNameTextField.text= self.person.firstname;
     self.personFirstnameTextField.text= self.person.firstname;
     self.personSurnameTextField.text= self.person.surname;
+    self.personRoleTableViewCell.textLabel.text= self.person.inRole.name;
+    self.selectedRole= self.person.inRole;
     
 }
 

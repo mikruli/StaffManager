@@ -34,6 +34,7 @@
 		1EE47D051A802A1E006D4731 /* Role.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE47D041A802A1E006D4731 /* Role.m */; };
 		1EE47D081A802A1E006D4731 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EE47D071A802A1E006D4731 /* Person.m */; };
 		772820121A929B0500497B9E /* CoreDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 772820111A929B0500497B9E /* CoreDataTableViewCell.m */; };
+		772820191A929EAD00497B9E /* RolePickerTVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 772820181A929EAD00497B9E /* RolePickerTVCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +92,8 @@
 		1EE47D071A802A1E006D4731 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
 		772820101A929B0500497B9E /* CoreDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewCell.h; sourceTree = "<group>"; };
 		772820111A929B0500497B9E /* CoreDataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewCell.m; sourceTree = "<group>"; };
+		772820171A929EAD00497B9E /* RolePickerTVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RolePickerTVCell.h; sourceTree = "<group>"; };
+		772820181A929EAD00497B9E /* RolePickerTVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RolePickerTVCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +238,8 @@
 				1EE47CF21A800D19006D4731 /* PersonDetailTVC.m */,
 				1EE47CF41A801DAD006D4731 /* PersonRoleTVC.h */,
 				1EE47CF51A801DAD006D4731 /* PersonRoleTVC.m */,
+				772820171A929EAD00497B9E /* RolePickerTVCell.h */,
+				772820181A929EAD00497B9E /* RolePickerTVCell.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -344,6 +349,7 @@
 				772820121A929B0500497B9E /* CoreDataTableViewCell.m in Sources */,
 				1EB04DAE1A7D16340043814C /* StaffManagerViewController.m in Sources */,
 				1EE47CED1A8009B9006D4731 /* AddPersonTVC.m in Sources */,
+				772820191A929EAD00497B9E /* RolePickerTVCell.m in Sources */,
 				1EE47CF31A800D19006D4731 /* PersonDetailTVC.m in Sources */,
 				1EB04E691A7D95B50043814C /* CoreDataTableViewController.m in Sources */,
 				1EE47CEA1A80099D006D4731 /* PersonTVC.m in Sources */,

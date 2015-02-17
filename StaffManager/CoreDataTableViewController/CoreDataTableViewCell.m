@@ -79,8 +79,8 @@
 - (BOOL)resignFirstResponder 
 {
 	[[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
-	UITableView *tableView = (UITableView *)self.superview;
-	[tableView deselectRowAtIndexPath:[tableView indexPathForCell:self] animated:YES];
+	// UITableView *tableView = (UITableView *)self.superview;
+	// [tableView deselectRowAtIndexPath:[tableView indexPathForCell:self] animated:YES];
 	return [super resignFirstResponder];
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated
@@ -138,6 +138,14 @@
                 
             case NSFetchedResultsChangeDelete:
                 //[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+            case NSFetchedResultsChangeUpdate:
+                //[self.tableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                break;
+                
+            case NSFetchedResultsChangeMove:
+                //[self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+                //[self.tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
                 break;
         }
     }

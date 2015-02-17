@@ -16,6 +16,8 @@
 
 @synthesize managedObjectContext= _managedObjectContext;
 
+@synthesize selectedRole= _selectedRole;
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -25,6 +27,19 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    
+    self.personRoleTVCell.textLabel.text = @"";
+    self.personRoleTVCell.delegate = self;
+    self.personRoleTVCell.managedObjectContext = self.managedObjectContext;
+}
+- (void)roleWasSelectedOnPicker:(Role *)role {
+    
+    self.selectedRole = role;
+    self.personRoleTVCell.textLabel.text = self.selectedRole.name;
+    NSLog(@"AddPersonTVC has set '%@' as the Selected Role", self.selectedRole.name);
 }
 
 #pragma mark - IBAction metode
@@ -39,6 +54,7 @@
     // person.firstname= self.personNameTextField.text;
     person.firstname= self.personFirstnameTextField.text;
     person.surname= self.personSurnameTextField.text;
+    person.inRole= self.selectedRole;
     
     [self.managedObjectContext save:nil];
     
