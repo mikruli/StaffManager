@@ -17,6 +17,8 @@
 
 @implementation RolesTVC
 
+@synthesize searchResults= _searchResults;
+
 #pragma mark - ViewController postavke
 
 - (void)viewDidLoad
@@ -28,6 +30,10 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    self.searchResults = [NSMutableArray arrayWithCapacity:[[self.fetchedResultsController fetchedObjects] count]];
+    [self.tableView reloadData];
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -65,12 +71,24 @@
 
 #pragma mark - TableView Data Source metode
 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        return [self.searchResults count];
+    }
+    else
+    {
+        return [[[self.fetchedResultsController sections] objectAtIndex:section] numberOfObjects];
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     static NSString *cellIdentifier= @"Roles Cell";
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     if ( cell == nil ) {
         cell= [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
@@ -78,7 +96,19 @@
     
     // Configure the cell...
     
-    Role *role= [self.fetchedResultsController objectAtIndexPath:indexPath];
+    Role *role = nil;
+    
+    if (tableView == self.searchDisplayController.searchResultsTableView)
+    {
+        NSLog(@"Configuring cell to show search results");
+        role = [self.searchResults objectAtIndex:indexPath.row];
+    }
+    else
+    {
+        NSLog(@"Configuring cell to show normal data");
+        role = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    }
+    
     cell.textLabel.text= role.name;
     
     return cell;
@@ -145,6 +175,43 @@
     
     // close the delegated view
     [controller.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Content Filtering
+
+- (void)filterContentForSearchText:(NSString*)searchText scope:(NSString*)scope
+{
+    NSLog(@"Previous Search Results were removed.");
+    [self.searchResults removeAllObjects];
+    
+    for (Role *role in [self.fetchedResultsController fetchedObjects])
+    {
+        if ([scope isEqualToString:@"All"] || [role.name isEqualToString:scope])
+        {
+            NSComparisonResult result = [role.name compare:searchText
+                                                   options:(NSCaseInsensitiveSearch|NSDiacriticInsensitiveSearch)
+                                                     range:NSMakeRange(0, [searchText length])];
+            if (result == NSOrderedSame)
+            {
+                NSLog(@"Adding role.name '%@' to searchResults as it begins with search text '%@'", role.name, searchText);
+                [self.searchResults addObject:role];
+            }
+        }
+    }
+}
+
+#pragma mark - UISearchDisplayController Delegate Methods
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchString:(NSString *)searchString
+{
+    [self filterContentForSearchText:searchString scope:@"All"];
+    return YES;
+}
+
+- (BOOL)searchDisplayController:(UISearchDisplayController *)controller shouldReloadTableForSearchScope:(NSInteger)searchOption
+{
+    [self filterContentForSearchText:[self.searchDisplayController.searchBar text] scope:@"All"];
+    return YES;
 }
 
 @end
